@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="Project-images/zz.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pwn0sec Training Course</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bottom {
+            background-color: rgba(255, 255, 255, 0); /* Transparan */
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .credit {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .credit a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .credit a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 12px;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .image-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .image-container img {
+            max-width: 100px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner-text {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <p id="access-message">Checking access...</p>
+
+        <script>
+            const allowedIPs = ["103.178.86.46", "234.567.890.123, 172.18.200.85, 172.18.192.1, 192.168.100.3, 101.255.157.9"];
+
+            async function checkAccess() {
+                try {
+                    const response = await fetch("https://api.ipify.org?format=json");
+                    const data = await response.json();
+                    const userIP = data.ip;
+
+                    if (allowedIPs.includes(userIP)) {
+                        document.getElementById("access-message").innerText = "Access granted!";
+                    } else {
+                        document.getElementById("access-message").innerText = "Access denied!";
+                        document.body.style.display = "none"; // Hide the page content
+                    }
+                } catch (error) {
+                    console.error("Error fetching IP address:", error);
+                    document.getElementById("access-message").innerText = "Error checking access.";
+                }
+            }
+
+            checkAccess();
+        </script>
+    
+
+    <nav class="flex-div">
+        <div class="nav-left flex-div">
+            <img src="images/menu.png" class="menu-icon">
+            <img src="images/logo2.png" class="logo">
+        </div>
+        <div class="nav-middle flex-div">
+            <div class="search-box flex-div">
+                <input type="text" placeholder="Search">
+                <img src="images/search.png">
+            </div>
+            <img src="images/voice-search.png" class="mic-icon">
+        </div>
+        <div class="nav-right flex-div">
+            <img src="images/more.png">
+            <img src="images/notification.png">
+            <img src="Project-images/logo.webp" class="user-icon">
+        </div>
+    </nav>
+
+    <!-- ---------- SideBar -------- -->
+
+    <div class="sidebar">
+        <div class="shortcut-links">
+            <a href=""><img src="images/home.png"><p>Home</p></a>
+            <a href="course.html"><img src="images/explore.png"><p>Education</p></a>
+            <a href=""><img src="images/subscriprion.png"><p>Training</p></a>
+            <a href=""><img src="images/library.png"><p>Laboratory</p></a>
+            <a href=""><img src="images/history.png"><p>Capture</p></a>
+            <a href=""><img src="images/playlist.png"><p>Participate</p></a>
+            <a href=""><img src="images/messages.png"><p>Messages</p></a>
+            <a href=""><img src="images/show-more.png"><p>Show More</p></a>
+            <hr>
+        </div>
+        <div class="subscribed-list">
+            <h3>STAFF/MENTORING</h3>
+            <a href=""><img src="project-images/kosong.jpg"><p>Miftah</p></a>
+            <a href=""><img src="Project-images/kosong.jpg"><p>Andri</p></a>
+            <a href=""><img src="Project-images/kosong.jpg"><p>Kosong</p></a>
+            <a href=""><img src="Project-images/kosong.jpg"><p>Kosong</p></a>
+            <a href=""><img src="Project-images/kosong.jpg"><p>Kosong</p></a>
+        </div>
+    </div>
+
+    <!-- -------- Main------- -->
+
+    <div class="container">
+        <div class="banner">
+            <img src="Project-images/banner.png">
+        </div>
+        <div class="list-container">
+            <div class="vid-list">
+                <a href="poldajatim.html"><img src="Project-images/ytb1.jpg" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="poldajatim.html">Unauthenticated SSRF CVE-2022-1386 Kepolisian Negara Republik Indonesia</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>500M Views &bull; 1 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href="nasa.html"><img src="Project-images/naza.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="nasa.html">National Aeronautics and Space Administration | Exploring  Vulnerabilities XSS to perform CSRF </a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>100M Views &bull; 4 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/bni.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="bni.html">PT Bank Negara Indonesia (Bank BNI) Exploring Vulnerabilities XSS | Video Dokumentasi 2019</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>215M Views &bull; 2 month ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/sna.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="sinarmas.html">PT Bank Sinarmas Tbk Exploiting XSS SQL-Injection | Video Dokumentasi 2019</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>95M Views &bull; 3 years ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>150M Views &bull; 1 month ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>305M Views &bull; 5 years ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>50M Views &bull; 8 years ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>19M Views &bull; 6 month ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>190M Views &bull; 5 Days ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="vid-list">
+                <a href=""><img src="Project-images/maintance.png" class="thumbnail"></a>
+                <div class="flex-div">
+                    <img src="Project-images/zz.png">
+                    <div class="vid-info">
+                        <a href="">Vulnerability Maintance - Official Training Course</a>
+                        <p>Pwn0sec Training Course</p>
+                        <p>29M Views &bull; 6 month ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------- Footer ------------ -->
+  <!-- Konten Halaman -->
+
+  <div class="bottom">
+    <span class="credit">Created By <a href="https://academy.pwn0sec.com">Pwn0sec Cybersecurity Course</a></span>
+    <div class="copyright">
+        <span class="far fa-copyright"></span> 2024 All rights reserved.
+    </div>
+
+    <div class="image-container">
+        <img src="Project-images/pse-terdaftar.png" alt="Partner Logo">
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
